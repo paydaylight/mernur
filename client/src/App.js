@@ -4,10 +4,11 @@ import './App.css';
 import './hooks/use_script'
 import Banner from './components/banner'
 import Navbar from './components/navbar'
+import Address from './components/address'
 import useScript from './hooks/use_script';
 import useDGWidgetLoader from './hooks/use_dg_widget_loader'
 
-function App() {
+class App extends React.Component {
   // useScript("https://widgets.2gis.com/js/DGWidgetLoader.js");
   // useDGWidgetLoader(new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":43.250712,"lon":76.940445,"zoom":16},"opt":{"city":"almaty"},"org":[{"id":"9429940000800892"}]}))
   // return (
@@ -30,17 +31,39 @@ function App() {
   //   // </div>
   // );
 
-  return(
-    <div>
-      <Navbar></Navbar>
-        <div className="main">
+  constructor(props){
+    super(props)
+    this.addressView = React.createRef()
+  }
+
+  handleOnClick = (event) => {
+    //.current is verification that your element has rendered
+    
+    console.log(this.addressView)
+    if(this.addressView.current){
+        this.addressView.current.scrollIntoView({ 
+           behavior: "smooth", 
+           block: "nearest"
+        })
+    }else{
+      alert('fart')
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        <div className="parent"><Navbar event={() => this.handleOnClick}></Navbar></div>
         
+        <div className="main">
           <Banner></Banner>
         </div>
-    </div>
-    
-    
-  )
+        <div className="main" ref={this.addressView}>
+          <Address></Address>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
