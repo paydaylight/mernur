@@ -9,7 +9,22 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <!-- <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script> -->
+    <!-- <script charset="utf-8">new DGWidgetLoader({"width":640,"height":600,"borderColor":"#a3a3a3","pos":{"lat":43.250712,"lon":76.940445,"zoom":16},"opt":{"city":"almaty"},"org":[{"id":"9429940000800892"}]});</script> -->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+        <script type="text/javascript">
+            var map;
+
+            DG.then(function () {
+                map = DG.map('map', {
+                    center: [43.250712, 76.940445],
+                    zoom: 16
+                });
+
+                DG.marker([43.250712, 76.940445]).addTo(map).bindPopup('Вы кликнули по мне!');
+            });
+        </script>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -24,10 +39,11 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Мер-Нур</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    
     <div id="root"></div>
     <!--
       This HTML file is a template.

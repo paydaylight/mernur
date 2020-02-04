@@ -1,12 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './hooks/use_script'
 import Banner from './components/banner'
 import Navbar from './components/navbar'
 import Address from './components/address'
-import useScript from './hooks/use_script';
-import useDGWidgetLoader from './hooks/use_dg_widget_loader'
+import Map from './components/map'
 
 class App extends React.Component {
   // useScript("https://widgets.2gis.com/js/DGWidgetLoader.js");
@@ -37,28 +35,25 @@ class App extends React.Component {
   }
 
   handleOnClick = (event) => {
-    //.current is verification that your element has rendered
-    
-    console.log(this.addressView)
     if(this.addressView.current){
         this.addressView.current.scrollIntoView({ 
            behavior: "smooth", 
            block: "nearest"
         })
-    }else{
-      alert('fart')
     }
   }
 
   render() {
     return(
       <div>
-        <div className="parent"><Navbar event={() => this.handleOnClick}></Navbar></div>
-        
-        <div className="main">
+        <div className="parent">
+          <Navbar event={() => this.handleOnClick}></Navbar>
+        </div>
+        <div className="screen column">
           <Banner></Banner>
         </div>
-        <div className="main" ref={this.addressView}>
+        <div className="screen row" ref={this.addressView}>
+          <Map></Map>
           <Address></Address>
         </div>
       </div>

@@ -46,9 +46,9 @@ body {
   font-style: italic;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
+.screen {
+  /* display: flex;
+  flex-direction: column; */
   flex: 1;
   margin: 0;
   height: 100vh;
@@ -56,6 +56,16 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden; 
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
 }
 
 .banner {

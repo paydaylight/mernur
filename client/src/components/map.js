@@ -1,11 +1,10 @@
 import React from 'react'
 
 class Map extends React.Component {
+
     render() {
-        return (
-            <div>
-                
-            </div>
+        return ( 
+            <div id='map' style={{width: "500px", height:"400px"}}></div>
         )
     }
 }
