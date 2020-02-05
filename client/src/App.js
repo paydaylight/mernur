@@ -51,10 +51,11 @@ class App extends React.Component {
         </div>
         <div className="screen column">
           <Banner></Banner>
+          <label>на 5 февраля 2020</label>
         </div>
         <div className="screen row" ref={this.addressView}>
-          <Map></Map>
-          <Address></Address>
+            <Map></Map>
+            <Address></Address>
         </div>
       </div>
     )

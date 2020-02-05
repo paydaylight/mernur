@@ -4,21 +4,24 @@ class Address extends React.Component {
     render() {
         return(
             <div className="address-part">
-                <div>АДРЕС</div>
+                <div className="parts">АДРЕС</div>
                 <ul>
-                    <li>Жельтоксан, 134</li>
+                    <li><a href="http://2gis.kz/almaty/firm/9429940000800892/center/76.940445,43.250712/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">
+                    г. Алматы ул. Желтоксан, 134
+                    </a></li>
+                </ul>
+                    
+                <div className="parts">КОНТАКТЫ</div>
+                <ul>
+                    <li><a href="tel:+77015557828">+77015557828</a></li>
+                    <li><a href="tel:+77015557828">+77015557828</a></li>
+                    <li><a href="tel:+77015557828">+77015557828</a></li>
                 </ul> 
-                <div>КОНТАКТЫ</div>
+                <div className="parts">РЕЖИМ РАБОТЫ</div>
                 <ul>
-                    <li>87015557828</li>
-                    <li>87015557828</li>
-                    <li>87015557828</li>
-                </ul> 
-                <div>РЕЖИМ РАБОТЫ</div>
-                <ul>
-                    <li>с понедельника по пятницу - с 8:00 до 19:00</li>
-                    <li>с суббота - с 10:00 до 17:00</li>
-                    <li>воскресенье - выходной</li>
+                    <li>пн.- пт. с 8:00 до 19:00</li>
+                    <li>сб. с 10:00 до 17:00</li>
+                    <li>вс - выходной</li>
                 </ul>   
             </div>    
         )

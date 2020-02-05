@@ -1,5 +1,12 @@
+/* @font-face {
+  font-family: 'Monsterrat', sans-serif;
+  font-style: normal;
+  src: url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+} */
+
 body {
   background: url("./smash.jpg") repeat center center fixed;
+  font-family: 'Monsterrat', sans-serif;
 }
 
 .parent {
@@ -40,10 +47,13 @@ body {
   font-size: 43px;
   margin-bottom: 0;
   margin-top: 5px;
+  color: #0A0B0D;
 }
+
 .center h2 {
   margin-top: 5px;
   font-style: italic;
+  color: #0A0B0D;
 }
 
 .screen {
@@ -71,16 +81,30 @@ body {
 .banner {
   border: 1mm;
   border-radius: 7px;
-  background-color: #E52323;
-  margin: auto;
-  padding: 30px 40px;
+  background-color: #eb4034;
+  margin: 0;
+  padding: 25px 30px;
+  color: #0A0B0D;
+  font-family: 'Monsterrat', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.screen label {
+  font-style: italic;
+  font-family: 'Opens Sans', sans-serif;
+  margin-top: 4px;
 }
 
 .cell {
   border: 1mm;
   border-radius: 2px;
-  padding: 5px 15px;
+  padding: 8px 19px;
   background-color: #F2E4E4;
+  margin: 7px;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
 }
 
 .currency-name {
@@ -96,11 +120,13 @@ body {
   border-radius: 4mm;
   font-weight: bold;
   margin: 0 10vh 0 0;
-  color: #000000;
+  color: #0A0B0D;
+  border-color: #0A0B0D;
   width: 13vh;
   font-size: 16px;
   height: 6vh;
   cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .right-aligned {
@@ -112,6 +138,23 @@ body {
   flex-direction: column;
   justify-items: center;
   width: auto;
-  background-color: gray;
+  height: 390px;
+  color: #222F40;
+  background-color: #d4cecd;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px 20px 5px 10px;
+  border-radius: 0 10px 0 0;
 }
+
+#map {
+  width: 500px;
+  height: 400px;
+}
+
+.parts {
+  text-align: left;
+  margin-left: 20px;
+}
+
 
