@@ -49,11 +49,11 @@ class App extends React.Component {
         <div className="parent">
           <Navbar event={() => this.handleOnClick}></Navbar>
         </div>
-        <div className="screen column">
+        <div className="screen column back-1">
           <Banner></Banner>
           <label>на 5 февраля 2020</label>
         </div>
-        <div className="screen row" ref={this.addressView}>
+        <div className="screen row back-2" ref={this.addressView}>
             <Map></Map>
             <Address></Address>
         </div>
