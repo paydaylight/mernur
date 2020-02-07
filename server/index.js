@@ -4,8 +4,10 @@ const bodyParser = require('body-parser');
 const WebSocket = require('ws');
 var events = require('events')
 const event = new events.EventEmitter();
-
+const moment = require('moment');
 const app = express();
+
+moment.locale('ru')
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/mernur`, { useNewUrlParser: true, useNewUrlParser: true, useUnifiedTopology: true })
@@ -77,6 +79,7 @@ app.post('/admin/rates', auth.Basic(), async (req, res) => {
 })
 
 app.get('/admin/rates', auth.Basic(), async (req, res) => {
+    console.log('incoming request')
     rates = await Banner.findOne({})
 
     if(rates == undefined || rates == null){
@@ -89,7 +92,7 @@ app.get('/admin/rates', auth.Basic(), async (req, res) => {
                 { name: 'GBP', buy: 0, sell: 0 },
                 { name: 'CNY', buy: 0, sell: 0 }
             ], 
-            updated_at: Date.now().toString()
+            updated_at: moment(Date.now()).format("YYYY-MM-DD hh:mm:ss")
         })
     }
 
