@@ -2,9 +2,27 @@ import React from 'react';
 import Cell from './cell'
 
 class Banner extends React.Component {
+    ws = new WebSocket('ws://localhost:3000/ws')
+
+    componentDidMount() {
+        this.ws.onopen = () => {
+            try{
+                this.ws.send({message: "start"})
+            } catch(e) {
+                
+            }
+            
+        }
+
+        this.ws.onmessage = event => {
+            const data = JSON.parse(event.data)
+        }
+    }
+
     render() {
         return(
-            <table className="banner">
+            <div className="banner">
+                <table>
                 <tbody>
                     {['USD', 'EUR', 'RUB', 'KGS', 'GBP', 'CNY'].map((data, i) => {
                         return(
@@ -23,6 +41,7 @@ class Banner extends React.Component {
                     })}
                 </tbody>
             </table>
+            </div>
         ) 
     }
 }

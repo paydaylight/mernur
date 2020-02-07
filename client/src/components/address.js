@@ -4,6 +4,7 @@ class Address extends React.Component {
     render() {
         return(
             <div className="address-part">
+                <div className="separator"></div>
                 <strong>Мер-Нур</strong>
                 <div className="row bar"></div>
                 <label><a href="http://2gis.kz/almaty/firm/9429940000800892/center/76.940445,43.250712/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">
