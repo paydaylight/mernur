@@ -1,5 +1,4 @@
 import React from 'react'
-import InputCell from '../components/inputCell'
 
 class Admin extends React.Component {
     constructor(props) {
@@ -7,25 +6,61 @@ class Admin extends React.Component {
 
         this.state = {
             currencies: [
-                { name: 'USD', buy: 0, sell: 0 }, 
-                { name: 'EUR', buy: 0, sell: 0 },
-                { name: 'RUB', buy: 0, sell: 0 },
-                { name: 'KGS', buy: 0, sell: 0 },
-                { name: 'GBP', buy: 0, sell: 0 },
-                { name: 'CNY', buy: -1, sell: 0 }
+                { name: 'USD', buy: 0, sell: 0, id: 0 }, 
+                { name: 'EUR', buy: 0, sell: 0, id: 1 },
+                { name: 'RUB', buy: 0, sell: 0, id: 2 },
+                { name: 'KGS', buy: 0, sell: 0, id: 3 },
+                { name: 'GBP', buy: 0, sell: 0, id: 4 },
+                { name: 'CNY', buy: 0, sell: 0, id: 5 }
             ]
         }
     }
 
     componentDidMount() {
-        fetch("http://localhost:5000/admin/rates", {headers: { authorization: "Basic cGJvYWRtaW46YmFoYW5kaUJ1cmdlcno=" }}).then(event => {
-            const data = JSON.parse(event.data)
-
+        fetch("/admin/rates", {
+            method: "GET",
+            headers: new Headers({
+              "Authorization": `Basic ${new Buffer(`pboadmin:bahandiBurgerz`).toString('base64')}`
+            }),
+            credentials: "same-origin"
+          }).then(response => {
+            console.log(response)
+            return response.json()
+        }).then(data => {
+            console.log(data)
             this.setState({currencies: data.currencies.map(element => {
-                    return {name: element.name, buy: element.buy, sell: element.sell}
-                })
+                return {name: element.name, buy: element.buy, sell: element.sell, id: element._id}
             })
+        })
         }).catch(err => console.log(err))
+
+        console.log(this.state)
+    }
+
+    submitData = () => {
+        fetch("/admin/rates", {
+            method: "POST",
+            headers: new Headers({
+                "Authorization": `Basic ${new Buffer(`pboadmin:bahandiBurgerz`).toString('base64')}`,
+                "Content-Type": "application/json"
+            }),
+            body: JSON.stringify(this.state.currencies),
+            credentials: "same-origin"
+        })
+    }
+
+    saveSellValue = (e) => {
+        const { currencies } = this.state
+        const { id } = e.target
+        currencies[id-10].sell = e.target.value
+        this.setState({ currencies })
+    }
+
+    saveBuyValue = (e) => {
+        const { currencies } = this.state
+        const { id } = e.target
+        currencies[id].buy = e.target.value
+        this.setState({ currencies })
     }
 
     render() {
@@ -33,20 +68,22 @@ class Admin extends React.Component {
             <div>
                 <div className="screen column back-1">
                     <div className="container">
+                    <form>
                         <div className="banner">
+                            
                             <table>
                                 <tbody className="table">
-                                    {this.state.currencies.map((data) => {
+                                    {this.state.currencies.map((data, i) => {
                                         return(
-                                            <tr>
+                                            <tr key={data.id}>
                                                 <td>
-                                                    <InputCell value={data.buy} key={data.name}></InputCell>
+                                                    <input className="cell input"  id={i} value={data.buy} onChange={this.saveBuyValue}></input>
                                                 </td>
                                                 <td className="currency-name">
                                                     {data.name}
                                                 </td>
                                                 <td>
-                                                    <InputCell value={data.sell} key={data.name+10}></InputCell>
+                                                    <input className="cell input" id={i+10} value={data.sell} onChange={this.saveSellValue}></input>
                                                 </td>
                                             </tr>
                                         )
@@ -54,7 +91,8 @@ class Admin extends React.Component {
                                 </tbody>
                             </table>
                         </div>
-                        <button className="btn-submit">ОТПРАВИТЬ</button>
+                        <button className="btn-submit" onClick={() => this.submitData()}>СОХРАНИТЬ</button>
+                        </form>
                     </div>
                 </div>
             </div>

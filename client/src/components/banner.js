@@ -45,17 +45,17 @@ class Banner extends React.Component {
                 <div className="banner">
                     <table>
                     <tbody className="table">
-                        {this.state.currencies.map((data, i) => {
+                        {this.state.currencies.map((data) => {
                             return(
-                                <tr>
+                                <tr key={data.name}>
                                     <td>
-                                        <Cell value={data.buy} key={i}></Cell>
+                                        <Cell value={data.buy}></Cell>
                                     </td>
                                     <td className="currency-name">
                                         {data.name}
                                     </td>
                                     <td>
-                                        <Cell value={data.sell} key={i}></Cell>
+                                        <Cell value={data.sell}></Cell>
                                     </td>
                                 </tr>
                             )

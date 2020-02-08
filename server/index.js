@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({
 }));
         
 app.use(bodyParser.json());
+
 // model
 require('./models/banner')
 const Banner = mongoose.model('banner')
@@ -71,8 +72,10 @@ setInterval(() => {
 //routes
 const auth = require('./helpers/auth')
 app.post('/admin/rates', auth.Basic(), async (req, res) => {
-    // await Banner.findOneAndUpdate({})
-    banner = await Banner.findOne({})
+    await Banner.findOneAndUpdate({currencies: req.body.map(rates => {
+        return {name: rates.name, buy: rates.buy, sell: rates.sell}
+    }), updated_at: moment(Date.now()).format("YYYY-MM-DD hh:mm:ss") })
+
     event.emit('bannerUpdated')
 
     res.status(200).send()
@@ -96,7 +99,7 @@ app.get('/admin/rates', auth.Basic(), async (req, res) => {
         })
     }
 
-    res.status(200).send({data: rates.toObject()})
+    res.status(200).send(rates)
 })
 
 PORT = 5000
