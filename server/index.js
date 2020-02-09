@@ -36,7 +36,8 @@ wss.on('connection', (ws) => {
     });
     
     Banner.findOne({}).then(banner => {
-        ws.send(JSON.stringify(banner.toObject()))
+        console.log(banner)
+        ws.send(JSON.stringify(banner))
     })
 
     // ws.on('message', (message) => {
