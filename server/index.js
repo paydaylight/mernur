@@ -25,7 +25,7 @@ require('./models/banner')
 const Banner = mongoose.model('banner')
 
 const WebSocketServer = WebSocket.Server;
-const wss = new WebSocketServer({ port: 2222 });
+const wss = new WebSocketServer({ port: 2222, path: '/data' });
 
 wss.on('connection', (ws) => {
     console.log('conn')

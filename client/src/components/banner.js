@@ -19,7 +19,7 @@ class Banner extends React.Component {
             updated_at: null
         }
     }
-    ws = new WebSocket('ws://localhost:2222')
+    ws = new WebSocket('ws://localhost:2222/data')
 
     componentDidMount() {
         this.ws.onopen = () => {

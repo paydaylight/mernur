@@ -47,6 +47,9 @@ set :linked_dirs,               %w{client/node_modules server/node_modules}
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+
+
 task :npm_install_client do
     on roles(:app) do
         execute "cd #{fetch(:deploy_to)}/current/client && npm install"
