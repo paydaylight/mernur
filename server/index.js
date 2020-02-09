@@ -35,9 +35,11 @@ wss.on('connection', (ws) => {
         ws.isAlive = true;
     });
     
-    Banner.findOne({}).then(banner => {
+    const data = Banner.findOne({}).exec()
+
+    data.then(banner => {
         console.log(banner)
-        ws.send(JSON.stringify(banner))
+        ws.send(JSON.stringify(banner.toObject()))
     })
 
     // ws.on('message', (message) => {
@@ -73,6 +75,7 @@ setInterval(() => {
 //routes
 const auth = require('./helpers/auth')
 app.post('/admin/rates', auth.Basic(), async (req, res) => {
+    console.log(req.body)
     await Banner.findOneAndUpdate({currencies: req.body.map(rates => {
         return {name: rates.name, buy: rates.buy, sell: rates.sell}
     }), updated_at: moment(Date.now()).format("YYYY-MM-DD hh:mm:ss") })
