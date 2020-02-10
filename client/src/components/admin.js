@@ -20,11 +20,10 @@ class Admin extends React.Component {
         fetch("/admin/rates", {
             method: "GET",
             headers: new Headers({
-              "Authorization": `Basic ${new Buffer(`pboadmin:bahandiBurgerz`).toString('base64')}`
-            }),
-            credentials: "same-origin"
+              "Authorization": `Basic ${new Buffer(`${process.env.USER}:${process.env.PASSWORD}`).toString('base64')}`
+            })
           }).then(response => {
-            console.log(response)
+            console.log(response.body)
             return response.json()
         }).then(data => {
             console.log(data)
@@ -41,7 +40,7 @@ class Admin extends React.Component {
         fetch("/admin/rates", {
             method: "POST",
             headers: new Headers({
-                "Authorization": `Basic ${new Buffer(`pboadmin:bahandiBurgerz`).toString('base64')}`,
+                "Authorization": `Basic ${new Buffer(`${process.env.USER}:${process.env.PASSWORD}`).toString('base64')}`,
                 "Content-Type": "application/json"
             }),
             body: JSON.stringify(this.state.currencies),
