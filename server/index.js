@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "mer-nur.kz");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -79,7 +79,7 @@ setInterval(() => {
 
 //routes
 const auth = require('./helpers/auth')
-app.post('/api/rates', auth.Basic(), async (req, res) => {
+app.post('/api/rates', auth.Basic(), async (req, res, next) => {
     console.log(req.body)
     await Banner.findOneAndUpdate({currencies: req.body.map(rates => {
         return {name: rates.name, buy: rates.buy, sell: rates.sell}
@@ -90,7 +90,7 @@ app.post('/api/rates', auth.Basic(), async (req, res) => {
     res.status(200).send()
 })
 
-app.get('/api/rates', auth.Basic(), async (req, res) => {
+app.get('/api/rates', auth.Basic(), async (req, res, next) => {
     console.log('incoming request')
     rates = await Banner.findOne({})
 
