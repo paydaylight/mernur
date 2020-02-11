@@ -17,28 +17,24 @@ class Admin extends React.Component {
     }
 
     componentDidMount() {
-        fetch("/admin/rates", {
+        fetch("https://mer-nur.kz/api/rates", {
             method: "GET",
             headers: new Headers({
               "Authorization": `Basic ${new Buffer(`${process.env.USER}:${process.env.PASSWORD}`).toString('base64')}`
             })
           }).then(response => {
-            console.log(response.body)
             return response.json()
         }).then(data => {
-            console.log(data)
             this.setState({currencies: data.currencies.map(element => {
                 return {name: element.name, buy: element.buy, sell: element.sell, id: element._id}
             })
         })
         }).catch(err => console.log(err))
-
-        console.log(this.state)
         console.log(process.env.USER, process.env.PASSWORD)
     }
 
     submitData = () => {
-        fetch("/admin/rates", {
+        fetch("https://mer-nur.kz/api/rates", {
             method: "POST",
             headers: new Headers({
                 "Authorization": `Basic ${new Buffer(`${process.env.USER}:${process.env.PASSWORD}`).toString('base64')}`,

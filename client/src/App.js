@@ -12,7 +12,7 @@ class App extends React.Component {
         <BrowserRouter>
           <Switch>
             <Route path={"/home"} component={Landing}/>
-            <Route path={"/adminpanel"} component={Admin}/>
+            <Route path={"/admin"} component={Admin}/>
             <Redirect exact from="/" to="/home" />
           </Switch>
         </BrowserRouter>

@@ -73,7 +73,7 @@ setInterval(() => {
 
 //routes
 const auth = require('./helpers/auth')
-app.post('/admin/rates', auth.Basic(), async (req, res) => {
+app.post('/api/rates', auth.Basic(), async (req, res) => {
     console.log(req.body)
     await Banner.findOneAndUpdate({currencies: req.body.map(rates => {
         return {name: rates.name, buy: rates.buy, sell: rates.sell}
@@ -84,7 +84,7 @@ app.post('/admin/rates', auth.Basic(), async (req, res) => {
     res.status(200).send()
 })
 
-app.get('/admin/rates', auth.Basic(), async (req, res) => {
+app.get('/api/rates', auth.Basic(), async (req, res) => {
     console.log('incoming request')
     rates = await Banner.findOne({})
 
