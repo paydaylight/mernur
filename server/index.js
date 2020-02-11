@@ -20,6 +20,12 @@ app.use(bodyParser.urlencoded({
         
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "mer-nur.kz");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // model
 require('./models/banner')
 const Banner = mongoose.model('banner')

@@ -12,7 +12,7 @@ set :ssh_options,               { forward_agent: true, user: fetch(:user), keys:
 set :pty,                       false
 
 set :linked_dirs,               %w{client/node_modules server/node_modules}
-
+set :linked_files,              %w{client/.env}
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
