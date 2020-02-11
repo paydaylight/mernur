@@ -30,7 +30,6 @@ class Admin extends React.Component {
             })
         })
         }).catch(err => console.log(err))
-        console.log(process.env.REACT_APP_USER, process.env.REACT_APP_PASSWORD)
     }
 
     submitData = () => {
