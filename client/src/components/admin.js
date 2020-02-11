@@ -20,7 +20,7 @@ class Admin extends React.Component {
         fetch("https://mer-nur.kz/api/rates", {
             method: "GET",
             headers: new Headers({
-              "Authorization": `Basic ${new Buffer(`${process.env.USER}:${process.env.PASSWORD}`).toString('base64')}`
+              "Authorization": `Basic ${new Buffer(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`).toString('base64')}`
             })
           }).then(response => {
             return response.json()
@@ -30,14 +30,14 @@ class Admin extends React.Component {
             })
         })
         }).catch(err => console.log(err))
-        console.log(process.env.USER, process.env.PASSWORD)
+        console.log(process.env.REACT_APP_USER, process.env.REACT_APP_PASSWORD)
     }
 
     submitData = () => {
         fetch("https://mer-nur.kz/api/rates", {
             method: "POST",
             headers: new Headers({
-                "Authorization": `Basic ${new Buffer(`${process.env.USER}:${process.env.PASSWORD}`).toString('base64')}`,
+                "Authorization": `Basic ${new Buffer(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`).toString('base64')}`,
                 "Content-Type": "application/json"
             }),
             body: JSON.stringify(this.state.currencies),
