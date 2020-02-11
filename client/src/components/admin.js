@@ -34,6 +34,7 @@ class Admin extends React.Component {
         }).catch(err => console.log(err))
 
         console.log(this.state)
+        console.log(process.env.USER, process.env.PASSWORD)
     }
 
     submitData = () => {
