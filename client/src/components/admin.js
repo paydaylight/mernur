@@ -39,8 +39,7 @@ class Admin extends React.Component {
                 "Authorization": `Basic ${new Buffer(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`).toString('base64')}`,
                 "Content-Type": "application/json"
             }),
-            body: JSON.stringify(this.state.currencies),
-            credentials: "same-origin"
+            body: JSON.stringify(this.state.currencies)
         })
     }
 
