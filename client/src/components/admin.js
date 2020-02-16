@@ -44,6 +44,7 @@ class Admin extends React.Component {
     }
 
     saveSellValue = (e) => {
+        console.log("sell", e.target.value)
         const { currencies } = this.state
         const { id } = e.target
         currencies[id-10].sell = e.target.value
@@ -51,6 +52,7 @@ class Admin extends React.Component {
     }
 
     saveBuyValue = (e) => {
+        console.log("sell", e.target.value)
         const { currencies } = this.state
         const { id } = e.target
         currencies[id].buy = e.target.value
