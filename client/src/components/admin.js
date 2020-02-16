@@ -32,7 +32,9 @@ class Admin extends React.Component {
         }).catch(err => console.log(err))
     }
 
-    submitData = () => {
+    submitData = (event) => {
+        event.preventDefault();
+
         fetch("https://mer-nur.kz/api/rates", {
             method: "POST",
             headers: new Headers({
@@ -64,7 +66,7 @@ class Admin extends React.Component {
             <div>
                 <div className="screen column back-1">
                     <div className="container">
-                    <form>
+                    <form onSubmit={this.submitData}>
                         <div className="banner">
                             
                             <table>
@@ -87,7 +89,8 @@ class Admin extends React.Component {
                                 </tbody>
                             </table>
                         </div>
-                        <button className="btn-submit" onClick={() => this.submitData()}>СОХРАНИТЬ</button>
+                        {/* <button className="btn-submit" onClick={() => this.submitData()}>СОХРАНИТЬ</button> */}
+                        <input className="btn-submit" type="submit" value="СОХРАНИТЬ" />
                         </form>
                     </div>
                 </div>
