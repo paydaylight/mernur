@@ -56,7 +56,9 @@ wss.on('connection', (ws) => {
     // });
 
     event.on('bannerUpdated', function() {
-        Banner.findOne({}).then(banner => {
+        console.log('emited')
+        const updates = Banner.findOne({}).exec()
+        updates.then(banner => {
             wss.clients.forEach(function each(client) {
                 if (client.readyState === WebSocket.OPEN) {
                     client.send(JSON.stringify(banner.toObject()))
