@@ -27,8 +27,8 @@ body {
   width: auto;
   align-items: center;
   position: sticky;
-  backdrop-filter: blur(0.5px);
-  /* background-color: #ffffff; */
+  position: -webkit-sticky;
+  position: -moz-sticky;
 }
 
 .center {
@@ -50,19 +50,15 @@ body {
   margin-bottom: 0;
   margin-top: 5px;
   color: #0A0B0D;
-  /* color: #ffffff; */
 }
 
 .center h2 {
   margin-top: 5px;
   font-style: italic;
   color: #0A0B0D;
-  /* color: #ffffff; */
 }
 
 .screen {
-  /* display: flex;
-  flex-direction: column; */
   flex: 1;
   margin: 0;
   height: 100vh;
@@ -70,10 +66,6 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  /* background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed; */
 }
 
 .back-1 {
@@ -97,9 +89,6 @@ body {
 .banner {
   border: 1mm;
   border-radius: 7px;
-  /* background-color: #eb4034; */
-  /* box-shadow: 0px 9px 15px -1px rgba(0,0,0,0.17); */
-  /* box-shadow: 6px 7px 8px 0px rgba(0,0,0,0.45); */
   -moz-box-shadow: 0px -2px 29px 10px rgba(0,0,0,0.36);
   -webkit-box-shadow: 0px -2px 29px 10px rgba(0,0,0,0.36);
   box-shadow: 0px -2px 29px 10px rgba(0,0,0,0.36);
@@ -111,7 +100,6 @@ body {
   font-family: 'Monsterrat', sans-serif;
   font-size: 25px;
   font-weight: bold;
-  /* backdrop-filter: blur(20px); */
   background-color: #e85a4f;
 }
 
@@ -145,7 +133,7 @@ body {
   font-style: normal;
   min-width: 35px;
   text-align: center;
-  /* box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); */
+
 }
 
 .input {
@@ -208,12 +196,11 @@ body {
   /* border-radius: 0 10px 0 0; */
 }
 
-/* @media screen and (max-width:600px) {
-  .row { flex-direction: column;  }
-  .address-part { max-width: 400px; height: 300px; margin-bottom: 50px; }
-  #map { max-width: 280px; } 
-  .btn-default { font-size: 11px; }
-} */
+@media screen and (max-width:600px) {
+  .btn-default { margin: 10px; padding: 0;}
+  .row { flex-wrap: wrap;}
+  .address-part { max-width: none; flex: 1; margin-top: 10px; }
+}
 
 .address-part a {
   font-size: 17px;

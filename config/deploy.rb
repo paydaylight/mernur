@@ -52,7 +52,7 @@ set :linked_files,              %w{client/.env}
 
 task :npm_install_client do
     on roles(:app) do
-        execute "cd #{fetch(:deploy_to)}/current/client && npm install"
+        execute "cd #{fetch(:deploy_to)}/current/client && yarn install"
     end
     # run "cd #{fetch(:deploy_to)}/current/client && npm install"
 end
