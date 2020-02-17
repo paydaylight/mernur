@@ -200,6 +200,8 @@ body {
   .btn-default { margin: 10px; padding: 0;}
   .row { flex-wrap: wrap;}
   .address-part { max-width: none; flex: 1; margin-top: 10px; }
+  .input-style { max-width: 490px; }
+  .login-container { max-width: 490px; }
 }
 
 .address-part a {
@@ -270,3 +272,53 @@ body {
   box-sizing: border-box;
   outline: none;
 }
+
+.login-container {
+  /* display: flex;
+  flex-direction: column;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: solid #d1cfcf 1px;
+  border-radius: 4px;
+}
+
+.input-style {
+  margin-bottom: 10px;
+  border: solid #d1cfcf 1px;
+  padding: 7px;
+  width: 400px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.login-btn {
+  background-color: #2185d0;
+  color: #fff;
+  outline: 0;
+  border: none;
+  padding: 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1em;
+}
+
