@@ -6,12 +6,13 @@ class Admin extends React.Component {
 
         this.state = {
             currencies: [
-                { name: 'USD', buy: 0, sell: 0, id: 0 }, 
-                { name: 'EUR', buy: 0, sell: 0, id: 1 },
-                { name: 'RUB', buy: 0, sell: 0, id: 2 },
-                { name: 'KGS', buy: 0, sell: 0, id: 3 },
-                { name: 'GBP', buy: 0, sell: 0, id: 4 },
-                { name: 'CNY', buy: 0, sell: 0, id: 5 }
+                { name: 'USD', buy: 0, sell: 0 }, 
+                { name: 'EUR', buy: 0, sell: 0 },
+                { name: 'RUB', buy: 0, sell: 0 },
+                { name: 'GBP', buy: 0, sell: 0 },
+                { name: 'KGS', buy: 0, sell: 0 },
+                { name: 'CNY', buy: 0, sell: 0 },
+                { name: 'CHF', buy: 0, sell: 0 }
             ]
         }
     }

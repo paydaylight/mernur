@@ -4,10 +4,7 @@ const bodyParser = require('body-parser');
 const WebSocket = require('ws');
 var events = require('events')
 const event = new events.EventEmitter();
-const moment = require('moment');
 const app = express();
-
-moment.locale('ru')
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost:27017/mernur`, { useNewUrlParser: true, useNewUrlParser: true, useUnifiedTopology: true })
@@ -82,10 +79,9 @@ setInterval(() => {
 //routes
 const auth = require('./helpers/auth')
 app.post('/api/rates', auth.Basic(), async (req, res, next) => {
-    console.log(req.body)
     await Banner.findOneAndUpdate({currencies: req.body.map(rates => {
         return {name: rates.name, buy: rates.buy, sell: rates.sell}
-    }), updated_at: moment(Date.now()).format("YYYY-MM-DD hh:mm:ss") })
+    }), updated_at: Date.now() })
 
     event.emit('bannerUpdated')
 
@@ -102,11 +98,12 @@ app.get('/api/rates', auth.Basic(), async (req, res, next) => {
                 { name: 'USD', buy: 0, sell: 0 }, 
                 { name: 'EUR', buy: 0, sell: 0 },
                 { name: 'RUB', buy: 0, sell: 0 },
-                { name: 'KGS', buy: 0, sell: 0 },
                 { name: 'GBP', buy: 0, sell: 0 },
-                { name: 'CNY', buy: 0, sell: 0 }
+                { name: 'KGS', buy: 0, sell: 0 },
+                { name: 'CNY', buy: 0, sell: 0 },
+                { name: 'CHF', buy: 0, sell: 0 }
             ], 
-            updated_at: moment(Date.now()).format("YYYY-MM-DD hh:mm:ss")
+            updated_at: Date.now()
         })
     }
 

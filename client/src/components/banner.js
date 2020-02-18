@@ -1,7 +1,5 @@
 import React from 'react';
 import Cell from './cell'
-import moment from 'moment'
-moment.locale('ru')
 
 class Banner extends React.Component {
     constructor(props) {
@@ -12,13 +10,23 @@ class Banner extends React.Component {
                 { name: 'USD', buy: 0, sell: 0 }, 
                 { name: 'EUR', buy: 0, sell: 0 },
                 { name: 'RUB', buy: 0, sell: 0 },
-                { name: 'KGS', buy: 0, sell: 0 },
                 { name: 'GBP', buy: 0, sell: 0 },
-                { name: 'CNY', buy: 0, sell: 0 }
+                { name: 'KGS', buy: 0, sell: 0 },
+                { name: 'CNY', buy: 0, sell: 0 },
+                { name: 'CHF', buy: 0, sell: 0 }
             ], 
             updated_at: null
         }
+
+        this.formatter = new Intl.DateTimeFormat("ru", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric"
+        });
     }
+
     ws = new WebSocket('wss://mer-nur.kz/data')
 
     componentDidMount() {
@@ -35,7 +43,7 @@ class Banner extends React.Component {
 
             this.setState({currencies: data.currencies.map(element => {
                 return {name: element.name, buy: element.buy, sell: element.sell}
-            }), updated_at: moment(data.updated_at).format('MMMM Do YYYY, h:mm:ss')})
+            }), updated_at: data.updated_at})
         }
     }
 
@@ -64,7 +72,7 @@ class Banner extends React.Component {
                 </table>
                 
                 </div>
-                {this.state.updated_at ? <label className="date">на {this.state.updated_at}</label> : ''}
+                {this.state.updated_at ? <label className="date">на {this.formatter.format(this.state.updated_at)}</label> : ''}
             </div>
         ) 
     }
