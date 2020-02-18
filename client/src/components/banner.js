@@ -43,7 +43,8 @@ class Banner extends React.Component {
 
             this.setState({currencies: data.currencies.map(element => {
                 return {name: element.name, buy: element.buy, sell: element.sell}
-            }), updated_at: data.updated_at})
+            }), updated_at: new Date(data.updated_at).getTime()})
+            
         }
     }
 

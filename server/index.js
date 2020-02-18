@@ -41,7 +41,11 @@ wss.on('connection', (ws) => {
     const data = Banner.findOne({}).exec()
 
     data.then(banner => {
-        ws.send(JSON.stringify(banner.toObject()))
+        try {
+            ws.send(JSON.stringify(banner.toObject()))
+        } catch (error) {
+            console.log(error)
+        }   
     })
 
     // ws.on('message', (message) => {
