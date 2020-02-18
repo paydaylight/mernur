@@ -199,7 +199,7 @@ body {
 @media screen and (max-width:600px) {
   .btn-default { margin: 10px; padding: 0;}
   .row { flex-wrap: wrap;}
-  .address-part { max-width: none; flex: 1; margin-top: 10px; }
+  .address-part { max-width: none; flex: 1; margin-top: 10px; max-height: 200px;}
   .input-style { max-width: 490px; }
   .login-container { max-width: 490px; }
 }
