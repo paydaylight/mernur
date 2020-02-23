@@ -11,9 +11,10 @@ class Address extends React.Component {
                 г. Алматы ул. Желтоксан, 134
                 </a></label>
                 <br/>
-                <label><a href="tel:+77015557828">+77015557828</a></label>
-                <label><a href="tel:+77015557828">+77015557828</a></label>
-                <label><a href="tel:+77015557828">+77015557828</a></label> 
+                <label><a href="tel:+77272728872">+7 (727) 272‒88‒72</a></label>
+                <label><a href="tel:+77272615319">+7 (727) 261‒53‒19</a></label>
+                <label><a href="tel:+77053747464">+7‒705‒374‒74‒64</a></label>
+                <label><a href="tel:+77027954848">+7‒702‒795‒48‒48</a></label> 
             </div>    
         )
     }

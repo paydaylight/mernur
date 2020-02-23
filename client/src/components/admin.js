@@ -6,18 +6,22 @@ class Admin extends React.Component {
 
         this.state = {
             currencies: [
-                { name: 'USD', buy: 0, sell: 0 }, 
-                { name: 'EUR', buy: 0, sell: 0 },
-                { name: 'RUB', buy: 0, sell: 0 },
-                { name: 'GBP', buy: 0, sell: 0 },
-                { name: 'KGS', buy: 0, sell: 0 },
-                { name: 'CNY', buy: 0, sell: 0 },
-                { name: 'CHF', buy: 0, sell: 0 }
+                { name: 'USD', buy: 0, sell: 0, id: 'USD' }, 
+                { name: 'EUR', buy: 0, sell: 0, id: 'EUR' },
+                { name: 'RUB', buy: 0, sell: 0, id: 'RUB' },
+                { name: 'GBP', buy: 0, sell: 0, id: 'GBP' },
+                { name: 'KGS', buy: 0, sell: 0, id: 'KGS' },
+                { name: 'CNY', buy: 0, sell: 0, id: 'CNY' },
+                { name: 'CHF', buy: 0, sell: 0, id: 'CHF' }
             ]
         }
     }
 
     componentDidMount() {
+        if(this.props.location.state === undefined || this.props.location.state.isLoggedIn !== true){
+            this.props.history.push('/login')
+        }
+
         fetch("https://mer-nur.kz/api/rates", {
             method: "GET",
             headers: new Headers({
@@ -47,7 +51,6 @@ class Admin extends React.Component {
     }
 
     saveSellValue = (e) => {
-        console.log("sell", e.target.value)
         const { currencies } = this.state
         const { id } = e.target
         currencies[id-10].sell = e.target.value
@@ -55,7 +58,6 @@ class Admin extends React.Component {
     }
 
     saveBuyValue = (e) => {
-        console.log("sell", e.target.value)
         const { currencies } = this.state
         const { id } = e.target
         currencies[id].buy = e.target.value
