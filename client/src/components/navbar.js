@@ -10,7 +10,7 @@ class Navbar extends React.Component {
                 </div>
                 <div className="center">
                     <h1>Мер-Нур</h1>
-                    <h2>обмен валют</h2>
+                    <h2>ОБМЕН ВАЛЮТ</h2>
                 </div>
                 <div className="right">
                     <div className="empty"></div>

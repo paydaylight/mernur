@@ -26,6 +26,7 @@ class Landing extends React.Component {
           <Navbar event={() => this.handleOnClick}></Navbar>
         </div>
         <div className="screen column back-1">
+        <h1 className="title">КУПИМ ДОРОГО! ПРОДАДИМ ДЁШЕВО!</h1>
           <Banner></Banner>
         </div>
         <div className="screen row back-2" ref={this.addressView}>
