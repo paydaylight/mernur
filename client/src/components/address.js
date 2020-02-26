@@ -1,4 +1,6 @@
 import React from 'react'
+import phone from '../assets/phone.png'
+import whatsappLogo from '../assets/whatsapp.png'
 
 class Address extends React.Component {
     render() {
@@ -11,10 +13,22 @@ class Address extends React.Component {
                 г. Алматы ул. Желтоксан, 134
                 </a></label>
                 <br/>
-                <label><a href="tel:+77272728872">+7 (727) 272‒88‒72</a></label>
-                <label><a href="tel:+77272615319">+7 (727) 261‒53‒19</a></label>
-                <label><a href="tel:+77053747464">+7‒705‒374‒74‒64</a></label>
-                <label><a href="tel:+77027954848">+7‒702‒795‒48‒48</a></label> 
+                <div className="phone-element">
+                    <img src={phone} alt="phone" className="phone-normal"/>
+                    <a href="tel:+77272728872">+7 (727) 272‒88‒72</a>
+                </div>
+                <div className="phone-element">
+                    <img src={phone} alt="phone" className="phone-normal"/>
+                    <a href="tel:+77272615319">+7 (727) 261‒53‒19</a>
+                </div>
+                <div className="phone-element">
+                    <img src={phone} alt="phone" className="phone-normal"/>
+                    <a href="tel:+77027954848">+7‒702‒795‒48‒48</a>
+                </div>
+                <div className="phone-element">
+                    <img src={whatsappLogo} alt="phone" className="phone-wp"/>
+                    <a href="tel:+77053747464">+7‒705‒374‒74‒64</a>
+                </div>
             </div>    
         )
     }
