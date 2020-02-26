@@ -187,7 +187,7 @@ body {
 }
 
 .input {
-  max-width: 38px;
+  width: 55px;
 }
 
 .currency-name {
