@@ -172,6 +172,18 @@ body {
   text-decoration: none;
 }
 
+.red {
+  color: #ff2a00;
+}
+
+.green {
+  color: #00ff45;
+}
+
+.black {
+  color: #0A0B0D;
+}
+
 .cell {
   border: 1mm;
   border-radius: 2px;
@@ -272,6 +284,10 @@ body {
   text-align: center;
 }
 
+.brake {
+  flex: 0.2;
+}
+
 
 .btn-submit {
   display: flex;
@@ -348,6 +364,11 @@ body {
   font-weight: 100;
   font-size: 33px;
 }
+
+.small-text{
+  font-size: 15px;
+}
+
 .empty {
   flex: 0.8;
 }
@@ -362,8 +383,17 @@ body {
     max-height: 40vh;
     border: none;
   }
+
+  .phone-element{
+    margin-top: 0.6rem;
+  }
+
+  .separator {
+    margin-top: 0;
+  }
+
   .address-part a {
-    font-size: 19px;
+    font-size: 16px;
   }
 
   .address-part strong {
@@ -384,6 +414,7 @@ body {
     padding: 20px 25px;
     
   }
+
   .cell{
     padding: 6px 17px;
     font-size: 17px;
@@ -401,6 +432,14 @@ body {
   .parent:after {
     text-align: center;
     font-size: 15px;
+  }
+
+  .small-text {
+    font-size: 13px;
+  }
+
+  .brake {
+    flex: 0.8;
   }
 
   #map {

@@ -12,7 +12,8 @@ class Address extends React.Component {
                 <label><a target="blank" href="http://2gis.kz/almaty/firm/9429940000800892/center/76.940445,43.250712/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">
                 г. Алматы ул. Желтоксан, 134
                 </a></label>
-                <br/>
+                <span className="small-text">(проезд во внутренний двор с парковкой)</span>
+                <div className="brake"></div>
                 <div className="phone-element">
                     <img src={phone} alt="phone" className="phone-normal"/>
                     <a href="tel:+77272728872">+7 (727) 272‒88‒72</a>
