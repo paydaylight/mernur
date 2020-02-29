@@ -81,6 +81,17 @@ class Banner extends React.Component {
         
     }
 
+    handleChange = (index, type) => {
+        if(this.state.currencies[index][type] === this.state.previous_currencies[index][type]){
+            return -1
+        } else if(this.state.previous_currencies[index][type] === 0) {
+            return -1
+        }else {
+            return this.state.currencies[index][type] < this.state.previous_currencies[index][type]
+        }
+        
+    }
+
     render() {
         return(
             <div>
@@ -91,13 +102,13 @@ class Banner extends React.Component {
                             return(
                                 <tr key={data.name}>
                                     <td>
-                                        <Cell value={data.buy} changed={this.handleChangeBuy(i)}></Cell>
+                                        <Cell value={data.buy} changed={this.handleChange(i, "buy")}></Cell>
                                     </td>
                                     <td className="currency-name">
                                         {data.name}
                                     </td>
                                     <td>
-                                        <Cell value={data.sell} changed={this.handleChangeSell(i)}></Cell>
+                                        <Cell value={data.sell} changed={this.handleChange(i, "sell")}></Cell>
                                     </td>
                                 </tr>
                             )
