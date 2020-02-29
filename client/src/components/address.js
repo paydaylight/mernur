@@ -10,6 +10,7 @@ class Address extends React.Component {
                 <div className="separator"></div>
                 <strong>Мер-Нур</strong>
                 <div className="row bar"></div>
+                <div className="brake"></div>
                 <span className="small-text">ПРОЕЗД К ПАРКОВКЕ</span>
                 <div className="img-element">
                     <img src={twoGis} alt="map" className="map-icon"/>

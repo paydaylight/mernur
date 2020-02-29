@@ -6,7 +6,8 @@
 
 body {
   /* background: url("./abs.jpg") no-repeat center center fixed; */
-  font-family: 'Ubuntu', sans-serif;
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: 'Roboto', ;
 }
 
 .parent {
@@ -50,8 +51,9 @@ body {
   margin-bottom: 0;
   margin-top: 5px;
   color: #0A0B0D;
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: 0.1rem;
+  font-family: 'Monsterrat', sans-serif;
 }
 
 .center h2 {
@@ -129,7 +131,7 @@ body {
 }
 
 .img-element{
-  margin-top: 6px;
+  margin-top: 0.75rem;
   display: flex;
   height: 20px;
   width: 100%;
@@ -155,7 +157,7 @@ body {
 
 .img-element a {
   margin-left: 7px;
-  font-family: 'Opens Sans', sans-serif;
+  /* font-family: 'Opens Sans', sans-serif; */
   font-style: normal;
 }
 
@@ -192,7 +194,7 @@ body {
   background-color: #faf3f2;
   margin: 7px;
   font-size: 1.25rem;
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   font-style: normal;
   min-width: 35px;
   text-align: center;
@@ -225,8 +227,9 @@ body {
   height: 50px;
   cursor: pointer;
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   outline: none;
+  font-family: 'Monsterrat', sans-serif;
 }
 
 .right-aligned {
@@ -241,7 +244,7 @@ body {
   height: 390px;
   color: #2e2d2d;
   font-size: 20px;
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   padding: 5px 20px 5px 10px;
   border: solid #eae7dc;
   background-color: #F7F7F7;
@@ -400,6 +403,7 @@ body {
   }
 
   .address-part strong {
+    font-family: 'Monsterrat', sans-serif;
     font-size: 24px;
   }
 
@@ -423,6 +427,14 @@ body {
     font-size: 17px;
   }
 
+  .center {
+    text-align: left;
+  }
+
+  .left {
+    flex: 0.1;
+  }
+
   .center h1 {
     font-size: 1.75rem;
     margin: 0;
@@ -435,7 +447,7 @@ body {
   .parent:after {
     text-align: center;
     font-size: 15px;
-    margin-top: 0;
+    margin-top: 5px;
   }
 
   .small-text {
