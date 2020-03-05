@@ -1,4 +1,5 @@
 import React from 'react'
+import Loader from 'react-loader-spinner';
 
 class Admin extends React.Component {
     constructor(props) {
@@ -13,7 +14,8 @@ class Admin extends React.Component {
                 { name: 'KGS', buy: 0, sell: 0, id: 'KGS' },
                 { name: 'CNY', buy: 0, sell: 0, id: 'CNY' },
                 { name: 'CHF', buy: 0, sell: 0, id: 'CHF' }
-            ]
+            ],
+            isLoading: false
         }
     }
 
@@ -39,15 +41,20 @@ class Admin extends React.Component {
 
     submitData = (event) => {
         event.preventDefault();
-
-        fetch("https://mer-nur.kz/api/rates", {
+        this.setState({isLoading: true}, () => {
+            fetch("https://mer-nur.kz/api/rates", {
             method: "POST",
             headers: new Headers({
                 "Authorization": `Basic ${new Buffer(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`).toString('base64')}`,
                 "Content-Type": "application/json"
             }),
             body: JSON.stringify(this.state.currencies)
+        }).then((res) => this.setState({isLoading: false})).catch(err => {
+            this.setState({isLoading: false})
+            alert(err)
         })
+        })
+        
     }
 
     saveSellValue = (e) => {
@@ -93,7 +100,15 @@ class Admin extends React.Component {
                             </table>
                         </div>
                         {/* <button className="btn-submit" onClick={() => this.submitData()}>СОХРАНИТЬ</button> */}
-                        <input className="btn-submit" type="submit" value="СОХРАНИТЬ" />
+                        {this.state.isLoading ? 
+                                        <div style={{textAlign: "center"}}>
+                                            <Loader 
+                                                type="ThreeDots" 
+                                                color="#5fb053"
+                                                height={60}
+                                                width={60}
+                                            />
+                                        </div> : <input className="btn-submit" type="submit" value="СОХРАНИТЬ" />}
                         </form>
                     </div>
                 </div>

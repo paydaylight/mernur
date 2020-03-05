@@ -1,5 +1,6 @@
 import React from 'react';
-import Cell from './cell'
+import Cell from './cell';
+import Loader from 'react-loader-spinner';
 
 class Banner extends React.Component {
     constructor(props) {
@@ -24,7 +25,8 @@ class Banner extends React.Component {
                 { name: 'CNY', buy: 0, sell: 0 },
                 { name: 'CHF', buy: 0, sell: 0 }
             ],
-            updated_at: null
+            updated_at: null,
+            isLoading: true
         }
 
         this.formatter = new Intl.DateTimeFormat("ru", {
@@ -45,6 +47,7 @@ class Banner extends React.Component {
             // } catch(e) {
                 
             // }
+            // this.setState({isLoading: true})
         }
 
         this.ws.onmessage = event => {
@@ -54,7 +57,7 @@ class Banner extends React.Component {
 
             this.setState({currencies: data.currencies.map(element => {
                 return {name: element.name, buy: element.buy, sell: element.sell}
-            }), updated_at: new Date(data.updated_at).getTime()})
+            }), updated_at: new Date(data.updated_at).getTime(), isLoading: false})
             
         }
     }
@@ -102,13 +105,32 @@ class Banner extends React.Component {
                             return(
                                 <tr key={data.name}>
                                     <td>
-                                        <Cell value={data.buy} changed={this.handleChange(i, "buy")}></Cell>
+                                        {this.state.isLoading ?
+                                        <div className=" loader cell">
+                                            <Loader 
+                                                type="TailSpin" 
+                                                color="#0A0B0D"
+                                                height={18}
+                                                width={18}
+                                            />
+                                        </div> 
+                                         : 
+                                        <Cell value={data.buy} changed={this.handleChange(i, "buy")}/>}
                                     </td>
                                     <td className="currency-name">
                                         {data.name}
                                     </td>
                                     <td>
-                                        <Cell value={data.sell} changed={this.handleChange(i, "sell")}></Cell>
+                                    {this.state.isLoading ? 
+                                        <div className=" loader cell">
+                                            <Loader 
+                                                type="TailSpin" 
+                                                color="#0A0B0D"
+                                                height={18}
+                                                width={18}
+                                            />
+                                        </div>  : 
+                                        <Cell value={data.sell} changed={this.handleChange(i, "sell")}/>}
                                     </td>
                                 </tr>
                             )

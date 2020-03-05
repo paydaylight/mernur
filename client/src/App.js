@@ -5,6 +5,7 @@ import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import Landing from './components/landing'
 import Admin from './components/admin'
 import Login from './components/login'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 class App extends React.Component {
   render() {

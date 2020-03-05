@@ -6,7 +6,6 @@ export const loginAttempt = (login, password) => {
         app.auth().signInWithEmailAndPassword(login, password).then(res => {
             dispatch({type: 'LOGIN', payload: login})
         }).catch(err => {
-            console.log(err)
             dispatch({type: 'UNAUTHORIZED'})
         })    
     }
