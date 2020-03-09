@@ -13,8 +13,10 @@ class Navbar extends React.Component {
                     <h2>ОБМЕН ВАЛЮТ</h2>
                 </div>
                 <div className="right">
-                    <div className="empty"></div>
+                    
                     <Button value="АДРЕС" class="right-aligned" event={this.props.event}></Button>
+                    {/* <Button value="НА ГЛАВНУЮ" class="right-aligned" event={() => window.location.href = "https://mernurkz.tilda.ws/"}></Button> */}
+                    <div><a className="btn-link right-aligned" href="https://mernurkz.tilda.ws/">ГЛАВНАЯ</a></div>
                 </div>
                 
             </div>   

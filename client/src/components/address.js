@@ -32,7 +32,7 @@ class Address extends React.Component {
                 </div>
                 <div className="img-element">
                     <img src={phone} alt="phone" className="phone-normal"/>
-                    <a href="tel:+77027954848">+7‒702‒795‒48‒48</a>
+                    <a href="tel:+78028074848">+7‒802‒807‒48‒48</a>
                 </div>
                 <div className="img-element">
                     <img src={whatsappLogo} alt="phone" className="phone-wp"/>
