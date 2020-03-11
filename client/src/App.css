@@ -406,6 +406,16 @@ body {
 }
 
 @media screen and (max-width:750px) {
+
+  .screen {
+    max-height: 70%;
+    /* justify-content: flex-end; */
+  }
+
+  .navbar {
+    height: 30%;
+  }
+
   .btn-default { 
     margin: 0; 
     padding: 0;
@@ -417,6 +427,7 @@ body {
     padding: 0;
     border: none;
   }
+
   .right {
     flex-direction: row;
     height: 100%;
@@ -487,7 +498,7 @@ body {
   }
 
   .center h2 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 0 0 3px 0;
   }
   .parent:after {
@@ -508,6 +519,10 @@ body {
   #map {
     max-width: 100vh;
     max-height: 57vh;
+  }
+
+  .empty {
+    flex: 0
   }
 }
 
