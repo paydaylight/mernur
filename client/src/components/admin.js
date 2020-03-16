@@ -60,14 +60,14 @@ class Admin extends React.Component {
     saveSellValue = (e) => {
         const { currencies } = this.state
         const { id } = e.target
-        currencies[id-10].sell = e.target.value
+        currencies[id-10].sell = parseFloat(e.target.value.replace(",", "."))
         this.setState({ currencies })
     }
 
     saveBuyValue = (e) => {
         const { currencies } = this.state
         const { id } = e.target
-        currencies[id].buy = e.target.value
+        currencies[id].buy = parseFloat(e.target.value.replace(",", "."))
         this.setState({ currencies })
     }
 
