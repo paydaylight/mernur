@@ -38,7 +38,7 @@ class Banner extends React.Component {
         });
     }
 
-    ws = new WebSocket('wss://mer-nur.kz/data')
+    ws = new WebSocket('wss://kurs.mer-nur.kz/data')
 
     componentDidMount() {
         this.ws.onopen = () => {

@@ -24,7 +24,7 @@ class Admin extends React.Component {
             this.props.history.push('/login')
         }
 
-        fetch("https://mer-nur.kz/api/rates", {
+        fetch("https://kurs.mer-nur.kz/api/rates", {
             method: "GET",
             headers: new Headers({
               "Authorization": `Basic ${new Buffer(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`).toString('base64')}`
@@ -42,7 +42,7 @@ class Admin extends React.Component {
     submitData = (event) => {
         event.preventDefault();
         this.setState({isLoading: true}, () => {
-            fetch("https://mer-nur.kz/api/rates", {
+            fetch("https://kurs.mer-nur.kz/api/rates", {
             method: "POST",
             headers: new Headers({
                 "Authorization": `Basic ${new Buffer(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`).toString('base64')}`,
