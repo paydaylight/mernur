@@ -39,6 +39,15 @@ class Admin extends React.Component {
         }).catch(err => console.log(err))
     }
 
+    parseStateStringsToFloat = () => {
+        return this.state.currencies.map((rate) => {
+            return Object.assign(rate, {
+                buy: parseFloat(rate.buy.toString().replace(",", ".")), 
+                sell: parseFloat(rate.sell.toString().replace(",", "."))
+            })
+        })
+    }
+
     submitData = (event) => {
         event.preventDefault();
         this.setState({isLoading: true}, () => {
@@ -48,7 +57,7 @@ class Admin extends React.Component {
                 "Authorization": `Basic ${new Buffer(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`).toString('base64')}`,
                 "Content-Type": "application/json"
             }),
-            body: JSON.stringify(this.state.currencies)
+            body: JSON.stringify(this.parseStateStringsToFloat())
         }).then((res) => this.setState({isLoading: false})).catch(err => {
             this.setState({isLoading: false})
             alert(err)
@@ -60,14 +69,14 @@ class Admin extends React.Component {
     saveSellValue = (e) => {
         const { currencies } = this.state
         const { id } = e.target
-        currencies[id-10].sell = parseFloat(e.target.value.replace(",", "."))
+        currencies[id-10].sell = e.target.value
         this.setState({ currencies })
     }
 
     saveBuyValue = (e) => {
         const { currencies } = this.state
         const { id } = e.target
-        currencies[id].buy = parseFloat(e.target.value.replace(",", "."))
+        currencies[id].buy = e.target.value
         this.setState({ currencies })
     }
 
