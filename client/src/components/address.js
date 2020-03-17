@@ -31,7 +31,7 @@ class Address extends React.Component {
                     <a href="tel:+77272615319">+7 (727) 261‒53‒19</a>
                 </div>
                 <div className="img-element">
-                    <img src={phone} alt="phone" className="phone-normal"/>
+                    <img src={whatsappLogo} alt="phone" className="phone-wp"/>
                     <a href="tel:+78028074848">+7‒702‒807‒48‒48</a>
                 </div>
                 <div className="img-element">
