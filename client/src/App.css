@@ -4,11 +4,6 @@
   src: url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 } */
 
-body {
-  /* background: url("./abs.jpg") no-repeat center center fixed; */
-  /* font-family: 'Ubuntu', sans-serif; */
-  font-family: 'Roboto', ;
-}
 
 .parent {
   position: absolute;

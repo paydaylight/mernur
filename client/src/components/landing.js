@@ -21,7 +21,7 @@ class Landing extends React.Component {
 
   render() {
     return(
-      <div>
+      <div style={{flexWrap: "wrap"}}>
         <div className="parent">
           <Navbar event={() => this.handleOnClick}></Navbar>
         </div>
