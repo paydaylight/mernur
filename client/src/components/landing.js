@@ -27,7 +27,7 @@ class Landing extends React.Component {
         </div>
         <div className="screen column back-1">
           <div style={{height: "15%", width: "100%"}}></div>
-          <div className="empty"></div>
+          {/* <div className="empty"></div> */}
           <Banner></Banner>
         </div>
         <div className="screen row back-2" ref={this.addressView}>

@@ -32,6 +32,16 @@ body {
   position: -moz-sticky;
 }
 
+.moto {
+  text-align: center;
+  margin-top: 5px;
+  letter-spacing: 0.3rem;
+  font-weight: 100;
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 2px 2px 3px #262626;
+}
+
 .center {
   display: flex;
   flex-direction: column;
@@ -63,16 +73,18 @@ body {
   letter-spacing: 0.2rem;
   font-weight: 100;
 }
-
+/*
 .parent:after{
   display: block;
   content: "КУПИМ ДОРОГО! ПРОДАДИМ ДЁШЕВО!";
+  text-shadow: 2px 2px #20c7c1;
+  text-shadow: 2px 2px;
   margin-top: 5px;
   letter-spacing: 0.3rem;
   font-weight: 100;
   font-size: 2.3vw;
   text-align: center;
-}
+}*/
 
 .screen {
   flex: 1;
@@ -445,6 +457,8 @@ body {
     margin-top: 0px; 
     max-height: 40vh;
     border: none;
+    flex-basis: 50%;
+    flex-wrap: wrap;
   }
 
   .img-element{
@@ -501,14 +515,14 @@ body {
     font-size: 0.8rem;
     margin: 0 0 3px 0;
   }
-  .parent:after {
-    font-weight: 700;
-    text-align: center;
-    font-size: 15px;
-    margin-top: 5px;
+
+  .moto {
+    font-size: 24px;
+    font-weight: 200;
   }
 
   .small-text {
+    font-weight: 400;
     font-size: 13px;
   }
 
