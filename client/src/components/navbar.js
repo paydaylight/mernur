@@ -21,7 +21,7 @@ class Navbar extends React.Component {
                 </div>
             </div>
                 <div className="moto">
-                    КУПИМ ДОРОГО! ПРОДАДИМ ДЁШЕВО!
+                    ПОКУПАЕМ ДОРОГО! ПРОДАЕМ ДЁШЕВО!
                 </div>
             </div>
         )
